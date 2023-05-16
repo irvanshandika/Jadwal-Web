@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/font-awesome.min.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/ionicons@7.1.0-0/dist/css/ionicons.min.css">
     <link href="./dist/style.css" rel="stylesheet" />
     <link rel="stylesheet" href="./src/style/style.css" />
-    <link rel="stylesheet" href="https://unpkg.com/ionicons@7.1.0-0/dist/css/ionicons.min.css">
     <title>Jadwal | IF07</title>
   </head>
-  <body>
+  <body class="bg-white dark:bg-gray-900">
     <div class="flex items-center justify-center">
       <lottie-player class="w-32 h-32 mx-1" src="https://assets1.lottiefiles.com/packages/lf20_Ssbj3iUBzB.json" background="transparent" speed="1" loop autoplay></lottie-player>
       <h1 class="text-xl font-medium">Jadwal Informatika 07</h1>
@@ -25,7 +25,7 @@
         <a href="#tampil-jadwal" aria-current="page" class="inline-block p-4 rounded-t-lg text-black hover:text-blue-600 hover:bg-gray-800 active" id="tampilJadwal-tab" data-tabs-target="#tampil-jadwal" role="tab" aria-controls="tampil-jadwal" aria-selected="false">Jadwal Pengganti</a>
       </li>
       <li class="mr-2">
-        <a href="#" aria-current="page" class="inline-block p-4 rounded-t-lg text-black hover:text-blue-600 hover:bg-gray-800 ">
+        <a href="#pengaturan" aria-current="page" class="inline-block p-4 rounded-t-lg text-black hover:text-blue-600 hover:bg-gray-800 " id="pengaturanTab" data-tabs-target="#pengaturan" role="tab" aria-controls="pengaturan" aria-selected="false">
           Settings
           <ion-icon class="w-17 px-2" name="construct"></ion-icon>
         </a>
@@ -33,6 +33,16 @@
     </ul>
     <!-- Akhir Tabs -->
     <div id="myTabContent">
+      <!-- Pengaturan -->
+      <section id="pengaturan" class="hidden" role="tabpanel" aria-labelledby="pengaturanTab">
+      <div class="flex justify-center text-center">
+        <h1 class="text-xl font-medium">Pengaturan</h1>
+      </div>
+      <div class="flex justify-center">
+      <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_ukkmrz6p.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+      </div>
+    </section>
+      <!-- Akhir Pengaturan -->
       <!-- Table -->
       <section id="jadwal" class="hidden" role="tabpanel" aria-labelledby="jadwal-tab">
         <div class="flex justify-center text-center">
@@ -284,33 +294,37 @@
       $koneksi = mysqli_connect($host, $user, $pass, $db);
 
       if (!$koneksi) {
-        die("Koneksi gagal: " . mysqli_connect_error());
+          die("Koneksi gagal: " . mysqli_connect_error());
       }
 
       $sql = "SELECT * FROM jadwal_kuliah";
       $result = mysqli_query($koneksi, $sql);
 
       if (mysqli_num_rows($result) > 0) {
-        $no = 1;
-        while ($row = mysqli_fetch_assoc($result)) { ?>
+          $no = 1;
+          while ($row = mysqli_fetch_assoc($result)) { ?>
       <tr class="max-md:w-14">
-        <th scope="row" class="text-center text-black p-3 max-md:!text-[12px]"><?php echo $row["hari"]; ?></th>
-        <td class="text-center text-black p-3 max-md:!text-[12px]"><?php echo $row["mata_kuliah"]; ?></td>
-        <td class="text-center text-black p-3 max-md:!text-[12px]"><?php echo $row["jam"]; ?></td>
-        <td class="text-center text-black p-3 max-md:!text-[12px]"><?php echo $row["ruangan"]; ?></td>
+        <th scope="row" class="text-center text-black p-3 max-md:!text-[12px]"><?php echo $row[
+            "hari"
+        ]; ?></th>
+        <td class="text-center text-black p-3 max-md:!text-[12px]"><?php echo $row[
+            "mata_kuliah"
+        ]; ?></td>
+        <td class="text-center text-black p-3 max-md:!text-[12px]"><?php echo $row[
+            "jam"
+        ]; ?></td>
+        <td class="text-center text-black p-3 max-md:!text-[12px]"><?php echo $row[
+            "ruangan"
+        ]; ?></td>
         <td td class="text-center text-black p-3 max-md:!text-[12px]">
           <!--Button Aksi-->
           <!-- Button Edit -->
-          <a href="form_edit.php?id=<?php echo $row[
-            "id"
-          ]; ?>"><button class=lass="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-1 py-1 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-            Edit
-          </button></a> |
+          <a href="form_edit.php?id=<?php echo $row["id"]; ?>">Edit</a> |
           <!-- Button Delete -->
-          
-          <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-1 py-1 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+          <a data-modal-target="popup-modal" data-modal-toggle="popup-modal" type="button" class="cursor-pointer">Delete</a>
+          <!-- <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-1 py-1 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
             Delete
-          </button>
+          </button> -->
           
           <div id="popup-modal" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
             <div class="relative w-full max-w-md max-h-full">
@@ -323,7 +337,7 @@
                   <svg aria-hidden="true" class="mx-auto mb-4 text-gray-400 w-14 h-14 dark:text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                   <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Are you sure you want to delete this product?</h3>
                   <a href="hapus.php?id=<?php echo $row[
-                    "id"
+                      "id"
                   ]; ?>"><button data-modal-hide="popup-modal" type="button" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
                     Yes, I'm sure
                   </button></a>
@@ -339,7 +353,7 @@
       </tr>
       <?php }
       } else {
-        echo " ";
+          echo " ";
       }
 
       mysqli_close($koneksi);
@@ -348,8 +362,83 @@
     </div>
     </section>
     </div>
+    <!-- Small Modal -->
+    <div id="small-modal" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+      <div class="relative w-full max-w-md max-h-full">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+          <!-- Modal header -->
+          <div class="flex items-center justify-between p-5 border-b rounded-t dark:border-gray-600">
+            <h3 class="text-xl font-medium text-gray-900 dark:text-white">Small modal</h3>
+            <button
+              type="button"
+              class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+              data-modal-hide="small-modal">
+              <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  fill-rule="evenodd"
+                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                  clip-rule="evenodd"></path>
+              </svg>
+              <span class="sr-only">Close modal</span>
+            </button>
+          </div>
+          <!-- Modal body -->
+          <div class="p-6 space-y-6">
+            <h1>##License My Project</h1>
+            <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+              MIT License Copyright (c) 2023 Irvan_4285 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without
+              restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject
+              to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+              EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+              OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+            </p>
+            <h1>##License by Flowbite™</h1>
+            <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+            Copyright (c) Themesberg (Bergside Inc.)
+            Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+            The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+            THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+            </p>
+          </div>
+          <!-- Modal footer -->
+          <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
+            <button
+              data-modal-hide="small-modal"
+              type="button"
+              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              I accept
+            </button>
+            <button
+              data-modal-hide="small-modal"
+              type="button"
+              class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">
+              Decline
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="bg-white rounded-lg shadow m-4 dark:bg-gray-800">
+      <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+        <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved. </span>
+        <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
+          <li>
+            <a href="#" class="mr-4 hover:underline md:mr-6">About</a>
+          </li>
+          <li>
+            <a href="#" class="mr-4 hover:underline md:mr-6">Privacy Policy</a>
+          </li>
+          <li>
+            <a data-modal-target="small-modal" data-modal-toggle="small-modal" type="button" class="mr-4 hover:underline md:mr-6 cursor-pointer">Licensing</a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+
     <!-- Script -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.0/lottie.js"></script>
     <script src="https://unpkg.com/prettier/standalone.js"></script>
@@ -359,6 +448,7 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="./node_modules/flowbite/dist/flowbite.min.js"></script>
     <script src="./src/script/index.js"></script>
+    <script src="./src/script/dist/index.dev.js"></script>
   </body>
   </html>
   

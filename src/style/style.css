@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.dot {
+  top: -4px;
+  left: -1px;
+  transition: transform 0.3s ease;
+}
+
+.dark .dot {
+  transform: translateX(100%);
+}
+
+.dark .bg-gray-400 {
+  background-color: rgba(255, 255, 255, 0.5);
+}
