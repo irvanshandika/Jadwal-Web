@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="./src/style/style.css" />
     <title>Jadwal | IF07</title>
   </head>
-  <body class="bg-white dark:bg-gray-900">
+  <body>
     <div class="flex items-center justify-center">
-      <lottie-player class="w-32 h-32 mx-1" src="https://assets1.lottiefiles.com/packages/lf20_Ssbj3iUBzB.json" background="transparent" speed="1" loop autoplay></lottie-player>
-      <h1 class="text-xl font-medium">Jadwal Informatika 07</h1>
+      <lottie-player class="w-24 h-24" src="https://assets1.lottiefiles.com/packages/lf20_Ssbj3iUBzB.json" background="transparent" speed="1" loop autoplay></lottie-player>
+      <h1 class="text-2xl font-medium ml-1">Jadwal Informatika 07</h1>
     </div>
     <!-- Tabs -->
     <ul class="flex flex-wrap text-sm font-medium justify-center text-center text-gray-500 border-b border-gray-700" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
@@ -294,28 +294,20 @@
       $koneksi = mysqli_connect($host, $user, $pass, $db);
 
       if (!$koneksi) {
-          die("Koneksi gagal: " . mysqli_connect_error());
+        die("Koneksi gagal: " . mysqli_connect_error());
       }
 
       $sql = "SELECT * FROM jadwal_kuliah";
       $result = mysqli_query($koneksi, $sql);
 
       if (mysqli_num_rows($result) > 0) {
-          $no = 1;
-          while ($row = mysqli_fetch_assoc($result)) { ?>
+        $no = 1;
+        while ($row = mysqli_fetch_assoc($result)) { ?>
       <tr class="max-md:w-14">
-        <th scope="row" class="text-center text-black p-3 max-md:!text-[12px]"><?php echo $row[
-            "hari"
-        ]; ?></th>
-        <td class="text-center text-black p-3 max-md:!text-[12px]"><?php echo $row[
-            "mata_kuliah"
-        ]; ?></td>
-        <td class="text-center text-black p-3 max-md:!text-[12px]"><?php echo $row[
-            "jam"
-        ]; ?></td>
-        <td class="text-center text-black p-3 max-md:!text-[12px]"><?php echo $row[
-            "ruangan"
-        ]; ?></td>
+        <th scope="row" class="text-center text-black p-3 max-md:!text-[12px]"><?php echo $row["hari"]; ?></th>
+        <td class="text-center text-black p-3 max-md:!text-[12px]"><?php echo $row["mata_kuliah"]; ?></td>
+        <td class="text-center text-black p-3 max-md:!text-[12px]"><?php echo $row["jam"]; ?></td>
+        <td class="text-center text-black p-3 max-md:!text-[12px]"><?php echo $row["ruangan"]; ?></td>
         <td td class="text-center text-black p-3 max-md:!text-[12px]">
           <!--Button Aksi-->
           <!-- Button Edit -->
@@ -337,11 +329,10 @@
                   <svg aria-hidden="true" class="mx-auto mb-4 text-gray-400 w-14 h-14 dark:text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                   <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Are you sure you want to delete this product?</h3>
                   <a href="hapus.php?id=<?php echo $row[
-                      "id"
+                    "id"
                   ]; ?>"><button data-modal-hide="popup-modal" type="button" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
                     Yes, I'm sure
                   </button></a>
-                  
                   <button data-modal-hide="popup-modal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">No, cancel</button>
                 </div>
               </div>
@@ -353,14 +344,14 @@
       </tr>
       <?php }
       } else {
-          echo " ";
+        echo " ";
       }
 
       mysqli_close($koneksi);
       ?>
-      </table>
-    </div>
-    </section>
+        </table>
+        </div>
+      </section>
     </div>
     <!-- Small Modal -->
     <div id="small-modal" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
@@ -369,7 +360,7 @@
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
           <!-- Modal header -->
           <div class="flex items-center justify-between p-5 border-b rounded-t dark:border-gray-600">
-            <h3 class="text-xl font-medium text-gray-900 dark:text-white">Small modal</h3>
+            <h3 class="text-xl font-medium text-gray-900 dark:text-white">Lecense</h3>
             <button
               type="button"
               class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
@@ -422,7 +413,7 @@
 
     <footer class="bg-white rounded-lg shadow m-4 dark:bg-gray-800">
       <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-        <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved. </span>
+        <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://irvanshandika.my.id" class="hover:underline">Irvan</a>~ All Rights Reserved. </span>
         <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
           <li>
             <a href="#" class="mr-4 hover:underline md:mr-6">About</a>
@@ -448,7 +439,6 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="./node_modules/flowbite/dist/flowbite.min.js"></script>
     <script src="./src/script/index.js"></script>
-    <script src="./src/script/dist/index.dev.js"></script>
   </body>
   </html>
   
