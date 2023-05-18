@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://unpkg.com/ionicons@7.1.0-0/dist/css/ionicons.min.css">
     <link href="./dist/style.css" rel="stylesheet" />
@@ -19,15 +19,18 @@
     <!-- Tabs -->
     <ul class="flex flex-wrap text-sm font-medium justify-center text-center text-gray-500 border-b border-gray-700" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
       <li class="mr-2">
-        <a href="#jadwal" aria-current="page" class="inline-block p-4 text-black hover:text-blue-600 hover:bg-gray-800 rounded-t-lg active" id="jadwal-tab" data-tabs-target="#jadwal" role="tab" aria-controls="jadwal" aria-selected="false">Jadwal</a>
+        <a href="#jadwal" aria-current="page" class="inline-block p-4 text-black hover:text-blue-600 hover:bg-gray-800 rounded-t-lg active" id="jadwal-tab" data-tabs-target="#jadwal" role="tab" aria-controls="jadwal" aria-selected="false">
+          <i class="fa-regular fa-calendar-days mr-1"></i>Jadwal
+        </a>
       </li>
       <li class="mr-2">
-        <a href="#tampil-jadwal" aria-current="page" class="inline-block p-4 rounded-t-lg text-black hover:text-blue-600 hover:bg-gray-800 active" id="tampilJadwal-tab" data-tabs-target="#tampil-jadwal" role="tab" aria-controls="tampil-jadwal" aria-selected="false">Jadwal Pengganti</a>
+        <a href="#tampil-jadwal" aria-current="page" class="inline-block p-4 rounded-t-lg text-black hover:text-blue-600 hover:bg-gray-800 active" id="tampilJadwal-tab" data-tabs-target="#tampil-jadwal" role="tab" aria-controls="tampil-jadwal" aria-selected="false">
+         <i class="fa-regular fa-calendar-days mr-1"></i>Jadwal Pengganti
+        </a>
       </li>
       <li class="mr-2">
         <a href="#pengaturan" aria-current="page" class="inline-block p-4 rounded-t-lg text-black hover:text-blue-600 hover:bg-gray-800 " id="pengaturanTab" data-tabs-target="#pengaturan" role="tab" aria-controls="pengaturan" aria-selected="false">
-          Settings
-          <ion-icon class="w-17 px-2" name="construct"></ion-icon>
+        <i class="fa-solid fa-wrench fa-sm"></i> Settings
         </a>
       </li>
     </ul>
@@ -164,8 +167,8 @@
   <!-- Input Jadwal -->
   <button
   type="button"
-  data-modal-target="defaultModal"
-  data-modal-toggle="defaultModal"
+  data-modal-target="inputModal"
+  data-modal-toggle="inputModal"
   class="w-[56px] h-[56px] text-gray-500 bg-white rounded-lg border border-gray-200 dark:border-gray-600 hover:text-gray-900 shadow-sm dark:hover:text-white dark:text-gray-400 hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none dark:focus:ring-gray-400">
           <!-- <ion-icon aria-hidden="true"  name="pencil"></ion-icon> -->
           <svg fill="none" class="w-6 h-6 mx-auto mt-px" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -189,7 +192,7 @@
   </div>
   <!-- Akhir Speed Dial -->
   <!-- Main modal -->
-  <div id="defaultModal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+  <div id="inputModal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative w-full max-w-2xl max-h-full">
       <!-- Modal content -->
       <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
@@ -202,7 +205,7 @@
           <button
           type="button"
           class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-          data-modal-hide="defaultModal">
+          data-modal-hide="inputModal">
           <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
             <path
             fill-rule="evenodd"
@@ -253,13 +256,13 @@
               </div>
               <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
                 <button
-                  data-modal-hide="defaultModal"
+                  data-modal-hide="inputModal"
                   type="submit"
                   class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                   I accept
                 </button>
                 <button
-                data-modal-hide="defaultModal"
+                data-modal-hide="inputModal"
                 type="button"
                 class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">
                 Decline
@@ -285,7 +288,6 @@
         </tr>
       </thead>
       <?php
-      // include 'koneksi.php'; //memanggil file koneksi.php
       $host = "localhost"; //alamat server
       $user = "root"; //username database
       $pass = ""; //password database
@@ -338,8 +340,6 @@
               </div>
             </div>
           </div>
-          
-          
         </td>
       </tr>
       <?php }
@@ -354,17 +354,19 @@
       </section>
     </div>
     <!-- Small Modal -->
-    <div id="small-modal" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div id="license-modal" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
       <div class="relative w-full max-w-md max-h-full">
         <!-- Modal content -->
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
           <!-- Modal header -->
           <div class="flex items-center justify-between p-5 border-b rounded-t dark:border-gray-600">
-            <h3 class="text-xl font-medium text-gray-900 dark:text-white">Lecense</h3>
+            <h3 class="text-xl font-medium text-gray-900 dark:text-white">
+              <i class="fa-solid fa-certificate mr-1"></i>Lecense
+            </h3>
             <button
               type="button"
               class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-              data-modal-hide="small-modal">
+              data-modal-hide="license-modal">
               <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <path
                   fill-rule="evenodd"
@@ -376,53 +378,132 @@
           </div>
           <!-- Modal body -->
           <div class="p-6 space-y-6">
-            <h1>##License My Project</h1>
-            <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-              MIT License Copyright (c) 2023 Irvan_4285 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without
-              restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject
-              to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-              EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
-              OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-            </p>
-            <h1>##License by Flowbite™</h1>
-            <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-            Copyright (c) Themesberg (Bergside Inc.)
-            Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-            The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-            THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-            </p>
+            <!-- License Web -->
+            <a href="LICENSE" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+              <h5 class="mb-2 text-lg font-thin tracking-tight text-gray-900 dark:text-white">
+                <svg
+                aria-hidden="true"
+                focusable="false"
+                role="img"
+                class="StyledOcticon-sc-1lhyyr-0"
+                viewBox="0 0 24 24"
+                width="32"
+                height="32"
+                fill="currentColor"
+                style="display: inline-block; user-select: none; vertical-align: text-bottom; overflow: visible">
+                <path
+                  d="M12.75 2.75V4.5h1.975c.351 0 .694.106.984.303l1.697 1.154c.041.028.09.043.14.043h4.102a.75.75 0 0 1 0 1.5H20.07l3.366 7.68a.749.749 0 0 1-.23.896c-.1.074-.203.143-.31.206a6.296 6.296 0 0 1-.79.399 7.349 7.349 0 0 1-2.856.569 7.343 7.343 0 0 1-2.855-.568 6.205 6.205 0 0 1-.79-.4 3.205 3.205 0 0 1-.307-.202l-.005-.004a.749.749 0 0 1-.23-.896l3.368-7.68h-.886c-.351 0-.694-.106-.984-.303l-1.697-1.154a.246.246 0 0 0-.14-.043H12.75v14.5h4.487a.75.75 0 0 1 0 1.5H6.763a.75.75 0 0 1 0-1.5h4.487V6H9.275a.249.249 0 0 0-.14.043L7.439 7.197c-.29.197-.633.303-.984.303h-.886l3.368 7.68a.75.75 0 0 1-.209.878c-.08.065-.16.126-.31.223a6.077 6.077 0 0 1-.792.433 6.924 6.924 0 0 1-2.876.62 6.913 6.913 0 0 1-2.876-.62 6.077 6.077 0 0 1-.792-.433 3.483 3.483 0 0 1-.309-.221.762.762 0 0 1-.21-.88L3.93 7.5H2.353a.75.75 0 0 1 0-1.5h4.102c.05 0 .099-.015.141-.043l1.695-1.154c.29-.198.634-.303.985-.303h1.974V2.75a.75.75 0 0 1 1.5 0ZM2.193 15.198a5.414 5.414 0 0 0 2.557.635 5.414 5.414 0 0 0 2.557-.635L4.75 9.368Zm14.51-.024c.082.04.174.083.275.126.53.223 1.305.45 2.272.45a5.847 5.847 0 0 0 2.547-.576L19.25 9.367Z"></path>
+                </svg>
+                irvanshandika/Jadwal-Web is licensed under the<h1 class="font-bold text-2xl">MIT License</h1> A short and simple permissive license with conditions only requiring preservation of copyright and license notices.
+              </h5>
+              <p class="font-normal text-gray-700 dark:text-gray-400">Licensed works, modifications, and larger works may be
+                distributed under different terms and without source code.
+              </p>
+            </a>
           </div>
           <!-- Modal footer -->
           <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
             <button
-              data-modal-hide="small-modal"
+              data-modal-hide="license-modal"
               type="button"
               class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-              I accept
-            </button>
-            <button
-              data-modal-hide="small-modal"
-              type="button"
-              class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">
-              Decline
+              Mengerti
             </button>
           </div>
         </div>
       </div>
     </div>
-
+          <!-- Modal About -->
+          <div id="about-modal" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div class="relative w-full max-w-lg max-h-full">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <!-- Modal header -->
+            <div class="flex items-center justify-between p-5 border-b rounded-t dark:border-gray-600">
+                <h3 class="text-xl font-medium text-gray-900 dark:text-white">
+                    <i class="fa-solid fa-user fa-sm mr-1"></i>About
+                </h3>
+                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="about-modal">
+                    <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                    <span class="sr-only">Close modal</span> 
+                </button>
+            </div>
+            <!-- Modal body -->
+            <div class="p-6 space-y-6">
+              <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">Website jadwal ini dibuat hanya sebagai alternatif untuk melihat jadwal ketika aplikasi utama bermasalah. Dan dapat untuk menginputkan jadwal mata kuliah pengganti dikemudian hari</p>
+            </div>
+            <!-- Modal footer -->
+            <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
+                <button data-modal-hide="about-modal" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Mengerti</button>
+            </div>
+        </div>
+    </div>
+</div>
+          <!-- Akhir Modal About -->
+          <!-- Modal Privacy Policy -->
+          <div id="privacy-modal" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+      <div class="relative w-full max-w-lg max-h-full">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+          <!-- Modal header -->
+          <div class="flex items-center justify-between p-5 border-b rounded-t dark:border-gray-600">
+            <h3 class="text-xl font-medium text-gray-900 dark:text-white">Privacy Policy</h3>
+            <button
+              type="button"
+              class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+              data-modal-hide="privacy-modal">
+              <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  fill-rule="evenodd"
+                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                  clip-rule="evenodd"></path>
+              </svg>
+              <span class="sr-only">Close modal</span>
+            </button>
+          </div>
+          <!-- Modal body -->
+          <div class="p-6 space-y-6">
+            <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+              <i class="fa-solid fa-file-shield fa-lg"></i><h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white">This Privacy Policy document contains types of information that is collected and recorded by Jadwal Kuliah IF 07 and how we use it.</h5>
+              <a href="https://www.privacypolicyonline.com/live.php?token=VMan5Qf4s70B0bnyYaliOp4LWMNQgxFX" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                Read more
+                <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <!-- Modal footer -->
+          <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
+            <button
+              data-modal-hide="privacy-modal"
+              type="button"
+              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              Mengerti
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Akhir Modal Privacy Policy -->
     <footer class="bg-white rounded-lg shadow m-4 dark:bg-gray-800">
       <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
         <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://irvanshandika.my.id" class="hover:underline">Irvan</a>~ All Rights Reserved. </span>
         <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
           <li>
-            <a href="#" class="mr-4 hover:underline md:mr-6">About</a>
+            <a data-modal-target="about-modal" data-modal-toggle="about-modal" class="mr-4 hover:underline md:mr-6 cursor-pointer">
+              <i class="fa-solid fa-user fa-sm mr-2"></i>About
+            </a>
           </li>
           <li>
-            <a href="#" class="mr-4 hover:underline md:mr-6">Privacy Policy</a>
+            <a data-modal-target="privacy-modal" data-modal-toggle="privacy-modal" class="mr-4 hover:underline md:mr-6 cursor-pointer">
+              <i class="fa-sharp fa-solid fa-shield-halved mr-2"></i>Privacy Policy
+            </a>
           </li>
           <li>
-            <a data-modal-target="small-modal" data-modal-toggle="small-modal" type="button" class="mr-4 hover:underline md:mr-6 cursor-pointer">Licensing</a>
+            <a data-modal-target="license-modal" data-modal-toggle="license-modal" type="button" class="mr-4 hover:underline md:mr-6 cursor-pointer">
+              <i class="fa-solid fa-certificate mr-2"></i>License
+            </a>
           </li>
         </ul>
       </div>
